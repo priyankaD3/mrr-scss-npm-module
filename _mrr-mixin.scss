@@ -1,0 +1,74 @@
+@mixin font-size($sizeValue) {
+  font-size: ($sizeValue / 16) + rem;
+}
+
+@mixin ct-btn {
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border: none;
+  line-height: 14px;
+  height: 24px;
+  padding: 0 12px;
+  font-family: "Segoe UI", Arial, sans-serif !important;
+}
+
+// $gapFiller - to increase the size of the table body to utilize more space
+// *currently implemented for member tab MRR-19320
+/** IE-11 Compatibility
+* MRR-19740: removed calc as parameter because IE11 does not supports nested calc
+*/
+@mixin dataGridCSS($dataGridHeight,$gridGapFiller,$gapFiller:0px) {
+  #dataGrid {
+    height: calc(#{$dataGridHeight} - #{$gridGapFiller});
+  }
+
+  .ui-table-scrollable-view {
+    .ui-table-scrollable-body {
+      max-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (110px - #{$gapFiller})) !important;
+      min-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (110px - #{$gapFiller})) !important;
+      td {
+        .field-name {
+          display: block;
+        }
+      }
+    }
+  }
+  .ui-table-unfrozen-view {
+    .ui-table-scrollable-body {
+      max-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (93px - #{$gapFiller})) !important;
+      min-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (93px - #{$gapFiller})) !important;
+      td {
+        .field-name {
+          display: block;
+        }
+      }
+    }
+  }
+  .ui-table-frozen-view {
+    .ui-table-scrollable-body {
+      max-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (110px - #{$gapFiller})) !important;
+      min-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (110px - #{$gapFiller})) !important;
+    }
+  }
+  .fix-width-grid,
+  .less-columns-grid {
+    .ui-table-frozen-view {
+      .ui-table-scrollable-body {
+        max-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (93px)) !important;
+        min-height: calc((#{$dataGridHeight} - #{$gridGapFiller}) - (93px)) !important;
+        margin-bottom: 0px !important;
+      }
+    }
+    .ui-table-unfrozen-view {
+      .ui-table-scrollable-body {
+        max-height: calc(#{$dataGridHeight} - 93px) !important;
+        min-height: calc(#{$dataGridHeight} - 93px) !important;
+      }
+    }
+  }
+}
