@@ -1,6 +1,6 @@
 {
   "name": "mrr-scss-npm-module",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Common scss",
   "main": "mrr-styles.scss",
   "scripts": {
